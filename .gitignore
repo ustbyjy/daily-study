@@ -1,4 +1,4 @@
-@@ -0,0 +1,59 @@
+# class
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -61,7 +61,7 @@ $RECYCLE.BIN/
 
 # IntelliJ IDEA
 *iml
-.idea/*
+.idea/
 
 # Eclipse
 .project
@@ -70,6 +70,4 @@ $RECYCLE.BIN/
 .metadata
 
 # Maven
-target/*
-
-
+target/
