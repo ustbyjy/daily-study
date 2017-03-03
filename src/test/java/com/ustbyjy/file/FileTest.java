@@ -16,7 +16,7 @@ public class FileTest {
 
     /**
      * mkdir方法不会创建必要的父目录，若父目录不存在，则创建失败返回false
-     * mkidrs方法会创建必要但不存在的父目录
+     * mkdirs方法会创建必要但不存在的父目录
      */
     @Test
     public void mkDirTest() {
