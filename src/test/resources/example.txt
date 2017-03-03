@@ -1,0 +1,26 @@
+<properties>
+    <jdk.version>1.7</jdk.version>
+    <junit.version>4.12</junit.version>
+    <commons-fileupload>1.2.1</commons-fileupload>
+    <commons-configuration.version>1.6</commons-configuration.version>
+    <commons-io.version>2.4</commons-io.version>
+    <jstl.version>1.2</jstl.version>
+    <servlet>3.1.0</servlet>
+    <spring.version>4.3.3.RELEASE</spring.version>
+    <slf4j.version>1.6.6</slf4j.version>
+    <logback.version>1.1.2</logback.version>
+    <jackson.version>1.9.6</jackson.version>
+    <poi.version>3.9</poi.version>
+    <quartz.version>1.6.1</quartz.version>
+    <easy-http.version>1.0.10-Final</easy-http.version>
+    <bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+    <mybatis-plus.version>2.0.2</mybatis-plus.version>
+    <mysql.version>5.1.38</mysql.version>
+    <velocity.version>1.7</velocity.version>
+    <velocity-tools.version>2.0</velocity-tools.version>
+    <druid.version>1.0.18</druid.version>
+    <spring-wind.version>1.1.5</spring-wind.version>
+    <easypoi.version>2.3.1</easypoi.version>
+    <ehcache.version>2.6.11</ehcache.version>
+    <kaptcha.version>0.0.9</kaptcha.version>
+</properties>
