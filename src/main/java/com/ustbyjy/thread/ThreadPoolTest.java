@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * Date: 2017-03-20
  * Time: 22:11
  */
-public class QueueTest {
+public class ThreadPoolTest {
     private static Queue<User> userQueue = new ConcurrentLinkedQueue<User>();
 
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class QueueTest {
 
         ExecutorService executorService = Executors.newFixedThreadPool(4);
         for (int i = 0; i < 10; i++) {
-            executorService.submit(new Runnable() {
+            executorService.execute(new Runnable() {
                 public void run() {
                     while (!userQueue.isEmpty()) {
                         User user = userQueue.poll();
