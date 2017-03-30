@@ -1,8 +1,13 @@
 package com.ustbyjy.file;
 
+import com.alibaba.fastjson.JSONArray;
 import org.junit.Test;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -29,5 +34,39 @@ public class FileTest {
             boolean result = file.mkdirs();
             System.out.println("mkdirs方法是否创建成功：" + result);
         }
+    }
+
+    @Test
+    public void compareFileTest() throws Exception {
+        File file1 = new File("D:\\PlatformSVN\\gmt\\trunk\\GMPlatform\\src\\main\\webapp\\WEB-INF\\assets\\js\\custom\\mail_gz.js");
+        File file2 = new File("D:\\PlatformSVN\\gmt\\trunk\\GMPlatform\\src\\main\\webapp\\WEB-INF\\assets\\js\\custom\\mail_mhzx.js");
+        BufferedReader bf1 = new BufferedReader(new FileReader(file1));
+        BufferedReader bf2 = new BufferedReader(new FileReader(file2));
+        while (true) {
+            String file1Line = bf1.readLine();
+            String file2Line = bf2.readLine();
+            System.out.println(file1Line);
+            if (file1Line != null && file2Line == null || file1Line == null && file2Line != null || file1Line != null && file2Line != null && !file1Line.trim().equals(file2Line.trim())) {
+                System.out.println("Two files is not the same.");
+                break;
+            }
+            if (file1Line == null && file2Line == null) {
+                System.out.println("The scanning is completed.");
+            }
+        }
+    }
+
+    @Test
+    public void jsonTest() {
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < 10; i++) {
+            jsonArray.add(i);
+        }
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
+        System.out.println(jsonArray);
+        System.out.println(list);
     }
 }
