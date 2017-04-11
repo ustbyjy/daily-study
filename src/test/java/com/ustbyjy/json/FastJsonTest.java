@@ -36,4 +36,15 @@ public class FastJsonTest {
         System.out.println(jsonString);
     }
 
+    @Test
+    public void testMap2Json3() {
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        Map<String, Object> posMap = new HashMap<String, Object>();
+        posMap.put("id" ,1);
+        posMap.put("name", "会员");
+        resultMap.put("pos", posMap);
+        String jsonString = JSONObject.toJSONString(resultMap);
+        System.out.println(jsonString);
+    }
+
 }
