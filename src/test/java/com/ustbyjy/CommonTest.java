@@ -2,6 +2,7 @@ package com.ustbyjy;
 
 import com.ustbyjy.bean.NutritionFacts;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import java.util.List;
@@ -55,7 +56,7 @@ public class CommonTest {
 
     @Test
     public void testBuilder() {
-        NutritionFacts cocaCola = new NutritionFacts.Builder(240,8)
+        NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
                 .calories(100)
                 .sodium(35)
                 .carbohydrate(27)

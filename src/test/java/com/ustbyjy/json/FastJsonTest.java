@@ -1,7 +1,7 @@
 package com.ustbyjy.json;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -40,7 +40,7 @@ public class FastJsonTest {
     public void testMap2Json3() {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         Map<String, Object> posMap = new HashMap<String, Object>();
-        posMap.put("id" ,1);
+        posMap.put("id", 1);
         posMap.put("name", "会员");
         resultMap.put("pos", posMap);
         String jsonString = JSONObject.toJSONString(resultMap);
