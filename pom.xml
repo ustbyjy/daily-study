@@ -21,6 +21,8 @@
         <fastjson.version>1.2.28</fastjson.version>
         <commons-lang.version>2.6</commons-lang.version>
         <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <easy-okhttp.version>1.1.0</easy-okhttp.version>
     </properties>
 
     <dependencies>
@@ -54,6 +56,16 @@
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>${commons-collections.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mzlion</groupId>
+            <artifactId>easy-okhttp</artifactId>
+            <version>${easy-okhttp.version}</version>
         </dependency>
     </dependencies>
 </project>

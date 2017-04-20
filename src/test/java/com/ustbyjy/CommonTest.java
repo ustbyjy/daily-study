@@ -1,11 +1,14 @@
 package com.ustbyjy;
 
 import com.ustbyjy.bean.NutritionFacts;
+import com.ustbyjy.bean.User;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -63,5 +66,36 @@ public class CommonTest {
                 .build();
 
         System.out.println(cocaCola);
+    }
+
+    @Test
+    public void testUser() {
+        User user = new User();
+        System.out.println(user);
+    }
+
+    @Test
+    public void testStringArray() {
+        Object obj = new String[]{"hello", "world"};
+        String[] stringArr = (String[]) obj;
+        System.out.println(Arrays.toString(stringArr));
+    }
+
+    @Test
+    public void testMapToString() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("k1", "v1");
+        map.put("k2", "v2");
+        map.put("k3", "v3");
+        map.put("k4", "v4");
+        System.out.println(map);
+
+        String result = "result:" + map;
+        System.out.println(result);
+
+        Object obj1 = 1;
+        Object obj2 = "1";
+        System.out.println(String.valueOf(obj1));
+        System.out.println(String.valueOf(obj2));
     }
 }
