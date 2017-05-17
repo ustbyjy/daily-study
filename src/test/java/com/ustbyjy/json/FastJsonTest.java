@@ -47,4 +47,15 @@ public class FastJsonTest {
         System.out.println(jsonString);
     }
 
+    @Test
+    public void testJson2Map() {
+        String jsonStr = "{}";
+        Map<String, Object> map = (Map<String, Object>) JSONObject.parse(jsonStr);
+        System.out.println(map);
+        map.put("age", 12);
+        map.put("name", "Jack");
+        jsonStr =  JSONObject.toJSONString(map);
+        System.out.println(jsonStr);
+    }
+
 }

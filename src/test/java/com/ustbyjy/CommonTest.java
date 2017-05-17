@@ -8,10 +8,9 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -210,13 +209,48 @@ public class CommonTest {
         StringBuilder sb = new StringBuilder().append("s=").append(s);
         System.out.println(sb.toString());
 
-        String s1 = "感謝一直以來對《東方不敗》的支持與鼓勵，但天下無不散的宴席，遊戲於2017年4月26日18：00暫停儲值業務，其後遊戲伺服器將在2017年5月26日12:00進行關閉，並停止營運服務，詳情請見官網公告";
-        System.out.println(s1.length());
     }
 
     @Test
-    public void testSign() {
-        String s1 = "KizACjaSYaBC7itMIP08fwm1ELLpzSlWARpg8ghAkVITppmQ2oj5FOclLrrnFYDFz8TKILsaxWMD6Y8bnKE1DR4Po%2BjGgC36YMeC%2B1neosLMqE4YEl8nDnfzRp66TGGo1X0yNErNmdOSJc%2BubT8ddI2b%2BmzfvPSxk%2F8K%2FpZ67kw%3D";
-        String s2 = "KizACjaSYaBC7itMIP08fwm1ELLpzSlWARpg8ghAkVITppmQ2oj5FOclLrrnFYDFz8TKILsaxWMD6Y8bnKE1DR4Po%252BjGgC36YMeC%252B1neosLMqE4YEl8nDnfzRp66TGGo1X0yNErNmdOSJc%252BubT8ddI2b%252BmzfvPSxk%252F8K%252FpZ67kw%253D";
+    public void testCompareString() {
+        String s1 = "12:50:16";
+        String s2 = "23:32:70";
+        System.out.println(s1.compareTo(s2));
+
     }
+
+    @Test
+    public void testNullEquals() {
+        String s = null;
+        System.out.println("hello".equals(s));
+        System.out.println(s.equals("hello"));
+    }
+
+    @Test
+    public void testString2Date() {
+        Date date;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(null);
+        } catch (ParseException e) {
+            date = new Date();
+        }
+        System.out.println(date);
+    }
+
+    @Test
+    public void testInteger() {
+        // 使用缓冲区数据：-128 - 127，返回true
+        System.out.println(Integer.valueOf("127") == Integer.valueOf("127"));
+        // 未使用缓冲区数据，返回false
+        System.out.println(Integer.valueOf("128") == Integer.valueOf("128"));
+        // parseInt返回int类型，然后自动拆箱比较，返回true
+        System.out.println(Integer.parseInt("128") == Integer.valueOf("128"));
+    }
+
+    @Test
+    public void testStringLength() {
+        String s1 = "6c4d433b33084eca913859762fbc938d$ireader@4028";
+        System.out.println(s1.length());
+    }
+
 }
