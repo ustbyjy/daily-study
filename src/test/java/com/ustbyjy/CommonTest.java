@@ -3,6 +3,7 @@ package com.ustbyjy;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ustbyjy.bean.NutritionFacts;
+import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -226,7 +227,7 @@ public class CommonTest {
         System.out.println(s.equals("hello"));
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testString2Date() {
         Date date;
         try {
@@ -251,6 +252,32 @@ public class CommonTest {
     public void testStringLength() {
         String s1 = "6c4d433b33084eca913859762fbc938d$ireader@4028";
         System.out.println(s1.length());
+
+
+    }
+
+    @Test
+    public void testMap() {
+        Map<Integer, Privilege> map = new TreeMap<Integer, Privilege>(new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
+        map.put(100, new Privilege(100, "权限100", 0));
+        map.put(1, new Privilege(1, "权限1", 10));
+        map.put(3, new Privilege(3, "权限100", 20));
+        map.put(10, new Privilege(10, "权限10", 30));
+        map.put(6, new Privilege(6, "权限6", 40));
+        for (Map.Entry<Integer, Privilege> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + "=" + entry.getValue());
+        }
+
+    }
+
+    @Test
+    public void testPrintList() {
+        List<String> list = Arrays.asList("hello", "word", "!!!");
+        System.out.println(list);
     }
 
 }
