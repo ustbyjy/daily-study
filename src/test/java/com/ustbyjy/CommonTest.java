@@ -280,4 +280,8 @@ public class CommonTest {
         System.out.println(list);
     }
 
+    @Test
+    public void testEmptyString() {
+    }
+
 }
