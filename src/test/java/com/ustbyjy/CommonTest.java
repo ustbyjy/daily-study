@@ -253,7 +253,6 @@ public class CommonTest {
         String s1 = "6c4d433b33084eca913859762fbc938d$ireader@4028";
         System.out.println(s1.length());
 
-
     }
 
     @Test
@@ -280,8 +279,32 @@ public class CommonTest {
         System.out.println(list);
     }
 
+    /**
+     * 在for循环中，应该初始化list长度，之后每次都取这个长度，而不是每次都调用list.size()方法来获取长度；
+     * 不过，优化的效果不是很明显，只有当list特别大的时候才能看出来。
+     */
     @Test
-    public void testEmptyString() {
+    public void testListSize() {
+        int length = 1000000;
+        List<Privilege> list = new ArrayList<Privilege>(1500000);
+        Privilege privilege;
+        for (int i = 0; i < length; i++) {
+            privilege = new Privilege(i, "p" + i, i);
+            list.add(privilege);
+        }
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+        long end = System.currentTimeMillis();
+        long time1 = end - start;
+        start = end;
+        for (int i = 0, size = list.size(); i < size; i++) {
+            System.out.println(list.get(i));
+        }
+        end = System.currentTimeMillis();
+        long time2 = end - start;
+        System.out.println("time1:" + time1);
+        System.out.println("time2:" + time2);
     }
-
 }
