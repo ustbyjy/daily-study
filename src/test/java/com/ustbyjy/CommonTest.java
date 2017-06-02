@@ -9,6 +9,8 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -302,6 +304,42 @@ public class CommonTest {
         for (int i = 0, size = list.size(); i < size; i++) {
             System.out.println(list.get(i));
         }
+        end = System.currentTimeMillis();
+        long time2 = end - start;
+        System.out.println("time1:" + time1);
+        System.out.println("time2:" + time2);
+    }
+
+    /**
+     * 一定不要在for循环里写try-catch，影响效率，要在try-catch里写for循环
+     */
+    @Test
+    public void testException() {
+        int length = 10000;
+        long start = System.currentTimeMillis();
+
+        for (int i = 0; i < length; i++) {
+            try {
+                FileWriter fw1 = new FileWriter("demo.txt");
+                FileWriter fw2 = new FileWriter("demo.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        long time1 = end - start;
+        start = end;
+
+        try {
+            for (int i = 0; i < length; i++) {
+                FileWriter fw1 = new FileWriter("demo.txt");
+                FileWriter fw2 = new FileWriter("demo.txt");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         end = System.currentTimeMillis();
         long time2 = end - start;
         System.out.println("time1:" + time1);
