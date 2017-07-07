@@ -1,9 +1,11 @@
 package com.ustbyjy.json;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ustbyjy.entity.ConfigList;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,6 +58,14 @@ public class FastJsonTest {
         map.put("name", "Jack");
         jsonStr =  JSONObject.toJSONString(map);
         System.out.println(jsonStr);
+    }
+
+    @Test
+    public void testDate2Json() {
+        ConfigList configList = new ConfigList();
+        configList.setId(1L);
+        configList.setCreateTime(new Date());
+        System.out.println(JSONObject.toJSONString(configList));
     }
 
 }
