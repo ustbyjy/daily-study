@@ -1,6 +1,7 @@
 package com.ustbyjy.thread;
 
-import com.ustbyjy.entity.User;
+
+import com.ustbyjy.bean.User;
 
 import java.util.Queue;
 import java.util.Random;

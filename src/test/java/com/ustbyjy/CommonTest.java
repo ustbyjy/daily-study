@@ -3,10 +3,10 @@ package com.ustbyjy;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ustbyjy.bean.ConfigList;
 import com.ustbyjy.bean.NutritionFacts;
 import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
-import com.ustbyjy.entity.ConfigList;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -423,5 +423,22 @@ public class CommonTest {
         }
         end = System.currentTimeMillis();
         System.out.println("Integer.toString(i) spent: " + (end - start) + "ms");
+    }
+
+    @Test
+    public void testString() {
+        String s = "heihei";
+        anotherString(s);
+        System.out.println(s);
+    }
+
+    private void anotherString(String s) {
+        s = "haha";
+        System.out.println(s);
+    }
+
+    @Test
+    public void testClassLoader() {
+        System.out.println(this.getClass().getClassLoader().getResource(""));
     }
 }

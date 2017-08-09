@@ -1,4 +1,4 @@
-package com.ustbyjy.entity;
+package com.ustbyjy.bean;
 
 import java.io.Serializable;
 import java.util.Date;

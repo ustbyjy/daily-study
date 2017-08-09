@@ -75,6 +75,7 @@ public class FileTest {
             if (!file.exists()) {
                 file.createNewFile();
             }
+            System.out.println(file.getName());
             FileOutputStream fos = new FileOutputStream(file);
             String content = "Hello!!!";
             fos.write(content.getBytes());

@@ -1,0 +1,7 @@
+<serverlist version="1" name="九州天空城3D">
+    <servergroup name="group1" os="iOS,pc" auth="auany" evaluation="false" accountwithzoneid="true" channel="uc" nochannel="baidu">
+        <server zoneid="106" name="游戏服103" address="119.29.108.232" port="19101" recommendrate="0" load="2" closed="false" hidden="false" preview="false" notice="" center_zoneid="2901" is_center="0" />
+        <server zoneid="106" name="游戏服102" address="119.29.108.232" port="19101" recommendrate="0" load="2" closed="false" hidden="false" preview="false" notice="" center_zoneid="2901" is_center="0" />
+    </servergroup>
+    <servergroup name="group2" os="" auth="auany" evaluation="false" accountwithzoneid="true" channel="uc" nochannel="" />
+</serverlist>
