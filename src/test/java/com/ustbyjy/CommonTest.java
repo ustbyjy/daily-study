@@ -441,4 +441,26 @@ public class CommonTest {
     public void testClassLoader() {
         System.out.println(this.getClass().getClassLoader().getResource(""));
     }
+
+    @Test
+    public void testProcess() {
+        try {
+            // create a new process
+            System.out.println("Creating Process...");
+
+            Process process = Runtime.getRuntime().exec("C:\\Program Files\\Git\\git-bash.exe");
+
+            // destroy the process instantly to get a exit value
+//            process.destroy();
+
+            // get the exit value of the new process
+
+//            Thread.sleep(5000);
+
+            System.out.println("" + process.exitValue());
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
