@@ -3,9 +3,7 @@ package com.ustbyjy.file;
 import com.alibaba.fastjson.JSONArray;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -68,5 +66,22 @@ public class FileTest {
         }
         System.out.println(jsonArray);
         System.out.println(list);
+    }
+
+    @Test
+    public void testWriteFile() {
+        try {
+            File file = new File("new.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            System.out.println(file.getName());
+            FileOutputStream fos = new FileOutputStream(file);
+            String content = "Hello!!!";
+            fos.write(content.getBytes());
+//            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

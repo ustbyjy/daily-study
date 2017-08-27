@@ -1,13 +1,17 @@
 package com.ustbyjy;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ustbyjy.bean.ConfigList;
 import com.ustbyjy.bean.NutritionFacts;
 import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,6 +27,7 @@ import java.util.*;
  * Time: 15:12
  */
 public class CommonTest {
+    private static Logger logger = LoggerFactory.getLogger(CommonTest.class);
 
     @Test
     public void test() {
@@ -344,5 +349,118 @@ public class CommonTest {
         long time2 = end - start;
         System.out.println("time1:" + time1);
         System.out.println("time2:" + time2);
+    }
+
+    @Test
+    public void testLogger() {
+        try {
+            throw new NullPointerException("空指针");
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+    }
+
+    @Test
+    public void testEnum() {
+        TypeEnum[] typeEnums = TypeEnum.values();
+        for (TypeEnum typeEnum : typeEnums) {
+            System.out.println(typeEnum.name());
+        }
+        System.out.println(JSONObject.toJSONString(TypeEnum.XML));
+    }
+
+    private enum TypeEnum {
+        XML(0, "xml"), JSON(1, "json");
+
+        private Integer id;
+        private String name;
+
+        private TypeEnum(Integer id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "TypeEnum{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    "} " + super.toString();
+        }
+    }
+
+    @Test
+    public void testCompareInteger() {
+        Integer id = null;
+        System.out.println(id < 0);
+    }
+
+    @Test
+    public void testConfigList() {
+        ConfigList configList = new ConfigList();
+        configList.setId(222L);
+        System.out.println(configList.toString());
+    }
+
+    @Test
+    public void testNewString() {
+        int length = 1000000;
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < length; i++) {
+            String s = String.valueOf(i);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("String.valueOf(i) spent: " + (end - start) + "ms");
+        start = end;
+        for (int i = 0; i < length; i++) {
+            String s = "" + i;
+        }
+        end = System.currentTimeMillis();
+        System.out.println("\"\" + i spent: " + (end - start) + "ms");
+        start = end;
+        for (int i = 0; i < length; i++) {
+            String s = Integer.toString(i);
+        }
+        end = System.currentTimeMillis();
+        System.out.println("Integer.toString(i) spent: " + (end - start) + "ms");
+    }
+
+    @Test
+    public void testString() {
+        String s = "heihei";
+        anotherString(s);
+        System.out.println(s);
+    }
+
+    private void anotherString(String s) {
+        s = "haha";
+        System.out.println(s);
+    }
+
+    @Test
+    public void testClassLoader() {
+        System.out.println(this.getClass().getClassLoader().getResource(""));
+    }
+
+    @Test
+    public void testProcess() {
+        try {
+            // create a new process
+            System.out.println("Creating Process...");
+
+            Process process = Runtime.getRuntime().exec("C:\\Program Files\\Git\\git-bash.exe");
+
+            // destroy the process instantly to get a exit value
+//            process.destroy();
+
+            // get the exit value of the new process
+
+//            Thread.sleep(5000);
+
+            System.out.println("" + process.exitValue());
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
