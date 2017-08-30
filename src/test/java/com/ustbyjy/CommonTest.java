@@ -463,4 +463,37 @@ public class CommonTest {
             ex.printStackTrace();
         }
     }
+
+    @Test
+    public void testEnvironment() {
+        Map<String, String> map = System.getenv();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("OS: " + map.get("OS"));
+
+        System.out.println("=====================华丽的分割线======================");
+
+        Properties properties = System.getProperties();
+        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("OS: " + System.getProperty("os.name"));
+    }
+
+    @Test
+    public void testUUID() {
+        String uuId = UUID.randomUUID().toString().replace("-", "");
+        System.out.println(uuId);
+        System.out.println(uuId.length());
+    }
+
+    @Test
+    public void testReplaceString() {
+        String ssoName = "yanjingyang@sso";
+        System.out.println(ssoName.replace("@sso", ""));
+        System.out.println(ssoName);
+        System.out.println(21474836 * 100);
+        System.out.println(Integer.MAX_VALUE * 100);
+    }
 }
