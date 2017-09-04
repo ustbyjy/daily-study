@@ -1,5 +1,10 @@
 package com.ustbyjy.time;
 
+import org.junit.Test;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -21,5 +26,16 @@ public class DateCalenderTest {
 
         System.out.println(date);
         System.out.println(calendar);
+    }
+
+    @Test
+    public void testString2Date() throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'");
+
+        Date date = sdf.parse("2017-09-04T");
+        System.out.println(date.toString());
+
+        String strDate = sdf.format(date);
+        System.out.println(strDate);
     }
 }
