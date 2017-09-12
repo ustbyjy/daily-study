@@ -7,6 +7,7 @@ import com.ustbyjy.bean.ConfigList;
 import com.ustbyjy.bean.NutritionFacts;
 import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
+import com.xiaoleilu.hutool.util.BeanUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -22,7 +23,7 @@ import java.util.*;
 /**
  * Created with IntelliJ IDEA.
  * Description:
- * User: yanjingyang
+ * User: yanjingyang@zulong.com
  * Date: 2017/3/13
  * Time: 15:12
  */
@@ -495,5 +496,40 @@ public class CommonTest {
         System.out.println(ssoName);
         System.out.println(21474836 * 100);
         System.out.println(Integer.MAX_VALUE * 100);
+        System.out.println(null == null);
+    }
+
+    @Test
+    public void testClone() {
+        List<User> userList = new ArrayList<User>();
+
+        User user = new User();
+        user.setId(1);
+
+        for (int i = 0; i < 10; i++) {
+            User tempUser = new User();
+            BeanUtil.copyProperties(user, tempUser);
+            tempUser.setName("user-" + i);
+            userList.add(tempUser);
+            System.out.println(tempUser);
+        }
+
+        System.out.println("==============华丽丽的分割线==============");
+
+        for (int i = 0; i < 10; i++) {
+            User tempUser = userList.get(i);
+            System.out.println(tempUser);
+        }
+    }
+
+    @Test
+    public void testPlus() {
+        String s = "154+280+378+750";
+        String[] strArray = s.split("\\+");
+        int result = 0;
+        for (int i = 0; i < strArray.length; i++) {
+            result += Integer.parseInt(strArray[i]);
+        }
+        System.out.println(result);
     }
 }
