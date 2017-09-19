@@ -108,4 +108,5 @@ public class FastJsonTest {
         ResultBean bean = JSON.parseObject(s, ResultBean.class);
         System.out.println(bean);
     }
+
 }
