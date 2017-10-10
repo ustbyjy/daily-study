@@ -30,27 +30,8 @@ import java.util.*;
 public class CommonTest {
     private static Logger logger = LoggerFactory.getLogger(CommonTest.class);
 
-    @Test
-    public void test() {
-        System.out.println("balance: " + balance(10000, 10, 0.06f));
-    }
-
-    private float balance(float capital, int year, float rate) {
-        if (year < 1) {
-            return capital - 10000;
-        }
-        return balance(capital * (1 + rate) + 10000, --year, rate);
-    }
-
-    @Test
-    public void test1() {
-        Long value = 10L;
-        value = -value;
-        System.out.println(value);
-    }
-
     /**
-     * foreach和for循环都要检查空指针
+     * foreach和for循环都不检查空指针
      * 使用apache commons collections工具类进行检查
      */
     @Test
@@ -148,32 +129,6 @@ public class CommonTest {
                     "name='" + name + '\'' +
                     ", symbol='" + symbol + '\'' +
                     "} ";
-        }
-    }
-
-    /**
-     * 若列表为null，无论是普通for循环还是增强for循环，都会引发空指针异常
-     */
-    @Test
-    public void testFor() {
-        List<String> list = null;
-
-//        for (String s : list) {
-//            System.out.println(s);
-//        }
-
-//        for (int i = 0; i < list.size(); i++) {
-//            System.out.println(list.get(i));
-//        }
-
-        list = Arrays.asList("we", "are", "the", "world");
-
-        for (String s : list) {
-            System.out.println(s);
-        }
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
         }
     }
 
