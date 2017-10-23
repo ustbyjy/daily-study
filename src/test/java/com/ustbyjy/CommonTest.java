@@ -487,4 +487,41 @@ public class CommonTest {
         }
         System.out.println(result);
     }
+
+    @Test
+    public void testDataToString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        System.out.println(sdf.format(new Date()));
+    }
+
+    /**
+     * 自动拆箱会带来性能损耗，若Integer与int比较是可使用Integer.intValue()值比较
+     */
+    @Test
+    public void testAutoBoxing() {
+        Integer i = 1;
+        int j = 1;
+        int index = 10000000;
+        long start = System.currentTimeMillis();
+        while (index > 0) {
+            if (i == index) {
+                break;
+            }
+            index--;
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("expend：" + (end - start) + "ms");
+
+        index = 10000000;
+        start = end;
+
+        while (index > 0) {
+            if (i == index) {
+                break;
+            }
+            index--;
+        }
+        end = System.currentTimeMillis();
+        System.out.println("expend：" + (end - start) + "ms");
+    }
 }

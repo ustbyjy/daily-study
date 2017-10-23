@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created with IntelliJ IDEA.
  * Description:
- * User: ustbyjy
+ * User: ustbyjy@163.com
  * Date: 2017/3/3
  * Time: 10:30
  */
@@ -35,7 +35,7 @@ public class CommonIOTest {
         File exampleFile = FileUtils.getFile(EXAMPLE_TEXT_PATH);
         LineIterator lineIterator = FileUtils.lineIterator(exampleFile);
         while (lineIterator.hasNext()) {
-            System.out.println("t" + lineIterator.next());
+            System.out.println(lineIterator.next());
         }
         lineIterator.close();
     }

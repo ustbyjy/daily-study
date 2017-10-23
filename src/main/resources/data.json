@@ -1,0 +1,70 @@
+{
+  "recordsTotal": 1158,
+  "recordsFiltered": 1158,
+  "length": 10,
+  "start": 0,
+  "draw": 1,
+  "error": null,
+  "data": [
+    {
+      "logTime": 1508403610000,
+      "hostName": null,
+      "moduleName": null,
+      "gameId": null,
+      "serverId": 20004,
+      "logId": null,
+      "logType": "currency",
+      "platformId": 4,
+      "channel": 150,
+      "mac": null,
+      "userId": null,
+      "roleId": 478756,
+      "roleLevel": 17,
+      "currencyType": {
+        "id": 44,
+        "gameId": 215,
+        "configType": {
+          "id": 2,
+          "name": "货币类型",
+          "description": "",
+          "createTime": 1507718373000,
+          "createAccount": "zLcxptkfb@keeL",
+          "modifyTime": 1507800067000,
+          "modifyAccount": "zLcxptkfb@keeL"
+        },
+        "itemId": 4,
+        "itemName": "绑定银币",
+        "itemDescription": "",
+        "createTime": 1508206989000,
+        "createAccount": "zLcxptkfb@keeL",
+        "modifyTime": null,
+        "modifyAccount": null
+      },
+      "reason": {
+        "id": 47,
+        "gameId": 215,
+        "configType": {
+          "id": 7,
+          "name": "物品获得原因",
+          "description": "",
+          "createTime": 1507718461000,
+          "createAccount": "zLcxptkfb@keeL",
+          "modifyTime": null,
+          "modifyAccount": null
+        },
+        "itemId": 1,
+        "itemName": "抽奖",
+        "itemDescription": "",
+        "createTime": 1508208444000,
+        "createAccount": "zLcxptkfb@keeL",
+        "modifyTime": null,
+        "modifyAccount": null
+      },
+      "changeNum": 500,
+      "leftNum": 11500,
+      "param": null,
+      "vipLevel": null,
+      "count": null
+    }
+  ]
+}
