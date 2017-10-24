@@ -7,7 +7,9 @@ import com.ustbyjy.bean.ConfigList;
 import com.ustbyjy.bean.NutritionFacts;
 import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
+import com.ustbyjy.util.FreeMarkerUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
+import freemarker.template.Template;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -523,6 +525,46 @@ public class CommonTest {
         }
         end = System.currentTimeMillis();
         System.out.println("expend：" + (end - start) + "ms");
+    }
+
+    @Test
+    public void testFreemarker() {
+        Template template = FreeMarkerUtil.getTemplate("templates/steam.ftl", CommonTest.class);
+        Map<String, Object> objects = new HashMap<String, Object>();
+        objects.put("bootstrap_servers", "10.105.237.187:9092");
+        objects.put("topics", "topic_keel_steam");
+        objects.put("group_id", "steam");
+        objects.put("autogenerate_column_names", "false");
+        objects.put("columns1", Arrays.asList("logtime", "hostname", "modulename", "gameid", "serverid", "logid", "logtype"));
+
+        Map<String, String> converts1 = new LinkedHashMap<String, String>();
+        converts1.put("logtime", "date");
+        converts1.put("gameid", "integer");
+        converts1.put("serverid", "integer");
+        objects.put("converts1", converts1);
+
+        objects.put("logtype", "currency");
+        objects.put("columns2", Arrays.asList("logtime", "hostname", "modulename", "gameid", "serverid", "logid", "logtype", "platform", "channel", "mac", "userid", "roleid", "rolelevel", "currencytype", "reason", "changenum", "leftnum"));
+
+        Map<String, String> converts2 = new LinkedHashMap<String, String>();
+        converts2.put("logtime", "date");
+        converts2.put("gameid", "integer");
+        converts2.put("serverid", "integer");
+        converts2.put("platform", "integer");
+        converts2.put("rolelevel", "integer");
+        converts2.put("currencytype", "integer");
+        converts2.put("reason", "integer");
+        converts2.put("changenum", "integer");
+        converts2.put("leftnum", "integer");
+        objects.put("converts2", converts2);
+
+        objects.put("removeFields", Arrays.asList("hostname", "modulename", "logid", "mac"));
+        objects.put("hosts", Arrays.asList("10.105.10.94:9200", "10.105.48.245:9200"));
+        objects.put("index", "currency-keel-%{gameid}-%{date}");
+        objects.put("template_name", "currency");
+        objects.put("routing", "%{userid}");
+
+        System.out.println(FreeMarkerUtil.render(template, objects));
     }
 
 }
