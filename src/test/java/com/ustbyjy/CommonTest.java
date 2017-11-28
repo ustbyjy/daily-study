@@ -567,4 +567,34 @@ public class CommonTest {
         System.out.println(FreeMarkerUtil.render(template, objects));
     }
 
+    /**
+     * 实际比较才发现String.replace还是比StringUtils.replace效率要高；
+     * 只不过StringUtils.replace可以指定最大替换数量，扩展性比较好
+     */
+    @Test
+    public void testReplace() {
+        long start = System.currentTimeMillis();
+        String s = "zzhzhhzhfavzlzloafzzzhzhhzhfavzlzloafzafzzzzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfea" +
+                "fglg.ag/bvnvnaglzozzzhzhhzhfzzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfe" +
+                "wgtzgzddgrdgaavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdf" +
+                "wgtzgzddgrdgaavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdf" +
+                "ewgtzgzddgrdgazzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgazzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeaf" +
+                "aglzozzzzzzzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdf" +
+                "ewgtzgzddgrdgazzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgazzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeaf" +
+                "ewgtzgzddgrdgazzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgazzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeaf" +
+                "glg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgatfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvn" +
+                "glg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgatfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvn" +
+                "ewgtzgzddgrdgazzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgazzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeaf" +
+                "glg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgatfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvn" +
+                "glg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgatfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvn" +
+                "aglzozzzzzzzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdf" +
+                "aglzozzzzzzzhzhhzhfavzlzloafzafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzozzzzzzdsfadfadfzfzf,f,,,ferfzzzzdf" +
+                "ewgtzgzddgrdgazdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdgaafzztfevvazef;fadslkazlffqffzdfeafglg.ag/bvnvnaglzo" +
+                "zzzzzzdsfadfadfzfzf,f,,,ferfzzzzdfewgtzgzddgrdga";
+        s = s.replace("fadfz", "hello world!");
+        s = StringUtils.replace(s, "fadfz", "hello world!");
+        System.out.println(s);
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
 }
