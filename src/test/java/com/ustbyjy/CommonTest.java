@@ -597,4 +597,21 @@ public class CommonTest {
         System.out.println(System.currentTimeMillis() - start);
     }
 
+    @Test
+    public void testObjects() {
+        // 使用原生的equals方法有可能抛空指针异常
+//        Object object = null;
+//        object.equals("hello");
+        boolean equalsResult = Objects.equals(null, null);
+        System.out.println(equalsResult);
+
+        int hashCodeResult = Objects.hashCode("hello");
+        System.out.println(hashCodeResult);
+
+        String toStringResult = Objects.toString(null);
+        System.out.println(toStringResult);
+
+        boolean isNullResult = Objects.isNull(null);
+        System.out.println(isNullResult);
+    }
 }
