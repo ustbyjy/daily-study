@@ -3,6 +3,9 @@ package com.ustbyjy.http;
 import com.mzlion.easyokhttp.HttpClient;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -27,6 +30,18 @@ public class HttpTest {
                 .param("name", "张三")
                 .param("mobile", "13023614020")
                 .param("lang", "Java")
+                .asString();
+        System.out.println(responseData);
+    }
+
+    @Test
+    public void testSSO() {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("LoginCode", "zhaotielei");
+        String responseData = HttpClient
+                .get("http://web.oa.zulong.com/C6/JHSoft.Web.ZLAttendance/JHOA_BusinessTrip.asmx/GetUserInfo")
+                .queryString(parameters)
+                .execute()
                 .asString();
         System.out.println(responseData);
     }
