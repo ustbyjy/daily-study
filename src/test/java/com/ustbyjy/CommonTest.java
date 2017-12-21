@@ -614,4 +614,14 @@ public class CommonTest {
         boolean isNullResult = Objects.isNull(null);
         System.out.println(isNullResult);
     }
+
+    @Test
+    public void testSet2Array() {
+        Set<String> set = new HashSet<>(Arrays.asList("a", "b", "c"));
+        String[] array = set.toArray(new String[0]);
+
+        for (String string: array) {
+            System.out.println(string);
+        }
+    }
 }
