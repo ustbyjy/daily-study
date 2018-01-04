@@ -12,6 +12,7 @@ import com.xiaoleilu.hutool.util.BeanUtil;
 import freemarker.template.Template;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -620,8 +621,15 @@ public class CommonTest {
         Set<String> set = new HashSet<>(Arrays.asList("a", "b", "c"));
         String[] array = set.toArray(new String[0]);
 
-        for (String string: array) {
+        for (String string : array) {
             System.out.println(string);
+        }
+    }
+
+    @Test
+    public void testRandomInt() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println(RandomUtils.nextInt(30));
         }
     }
 }
