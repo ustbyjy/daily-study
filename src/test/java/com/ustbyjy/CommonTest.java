@@ -632,4 +632,9 @@ public class CommonTest {
             System.out.println(RandomUtils.nextInt(30));
         }
     }
+
+    @Test
+    public void testStringFormat() {
+        System.out.println(String.format("key=%d，value=%s", 1, "user1"));
+    }
 }
