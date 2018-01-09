@@ -8,6 +8,7 @@ import com.ustbyjy.bean.NutritionFacts;
 import com.ustbyjy.bean.Privilege;
 import com.ustbyjy.bean.User;
 import com.ustbyjy.util.FreeMarkerUtil;
+import com.ustbyjy.util.IpUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import freemarker.template.Template;
 import org.apache.commons.collections.CollectionUtils;
@@ -636,5 +637,29 @@ public class CommonTest {
     @Test
     public void testStringFormat() {
         System.out.println(String.format("key=%d，value=%s", 1, "user1"));
+    }
+
+    @Test
+    public void testClearStringBuilder() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("hello");
+        System.out.println(sb.toString());
+
+        sb.delete(0, sb.length());
+        System.out.println(sb.toString());
+
+        sb.append("hello");
+        System.out.println(sb.toString());
+
+        sb.setLength(0);
+        System.out.println(sb.toString());
+    }
+
+    @Test
+    public void testIpInSegment() {
+        System.out.println(IpUtil.isInRange("192.168.1.127", "192.168.1.64/26"));
+        System.out.println(IpUtil.isInRange("192.168.1.2", "192.168.0.0/23"));
+        System.out.println(IpUtil.isInRange("192.168.0.1", "192.168.0.0/24"));
+        System.out.println(IpUtil.isInRange("192.168.0.0", "192.168.0.0/32"));
     }
 }

@@ -37,5 +37,11 @@ public class DateCalenderTest {
 
         String strDate = sdf.format(date);
         System.out.println(strDate);
+
+        sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        date = sdf.parse("2018-01-05");
+
+        System.out.println(date);
     }
+
 }
