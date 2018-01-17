@@ -662,4 +662,10 @@ public class CommonTest {
         System.out.println(IpUtil.isInRange("192.168.0.1", "192.168.0.0/24"));
         System.out.println(IpUtil.isInRange("192.168.0.0", "192.168.0.0/32"));
     }
+
+    @Test
+    public void testBytes2String() {
+        byte[] bytes = {105, 110, 105, 116};
+        System.out.println(new String(bytes));
+    }
 }
