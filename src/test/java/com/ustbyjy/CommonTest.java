@@ -3,10 +3,7 @@ package com.ustbyjy;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ustbyjy.bean.ConfigList;
-import com.ustbyjy.bean.NutritionFacts;
-import com.ustbyjy.bean.Privilege;
-import com.ustbyjy.bean.User;
+import com.ustbyjy.bean.*;
 import com.ustbyjy.util.FreeMarkerUtil;
 import com.ustbyjy.util.IpUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
@@ -667,5 +664,23 @@ public class CommonTest {
     public void testBytes2String() {
         byte[] bytes = {105, 110, 105, 116};
         System.out.println(new String(bytes));
+    }
+
+    @Test
+    public void testClassName() {
+        System.out.println(this.getClass().getName());
+        System.out.println(this.getClass().getSimpleName());
+    }
+
+    @Test
+    public void testIdeaBuilder() {
+        Student student = Student.newBuilder()
+                .id(1)
+                .name("Jim")
+                .age(25)
+                .school("USTB")
+                .birthday(new Date())
+                .build();
+        System.out.println(student);
     }
 }
