@@ -683,4 +683,12 @@ public class CommonTest {
                 .build();
         System.out.println(student);
     }
+
+    @Test
+    public void testCallback() {
+        Worker worker = new FirstWorker();
+        Leader leader = new Leader(worker);
+
+        leader.assignWork();
+    }
 }
