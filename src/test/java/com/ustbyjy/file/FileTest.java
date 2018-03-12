@@ -1,9 +1,13 @@
 package com.ustbyjy.file;
 
 import com.alibaba.fastjson.JSONArray;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -55,20 +59,6 @@ public class FileTest {
     }
 
     @Test
-    public void jsonTest() {
-        JSONArray jsonArray = new JSONArray();
-        for (int i = 0; i < 10; i++) {
-            jsonArray.add(i);
-        }
-        List<Integer> list = new ArrayList<Integer>();
-        for (int i = 0; i < 10; i++) {
-            list.add(i);
-        }
-        System.out.println(jsonArray);
-        System.out.println(list);
-    }
-
-    @Test
     public void testWriteFile() {
         try {
             File file = new File("new.txt");
@@ -84,4 +74,15 @@ public class FileTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testCharset() throws IOException {
+        String parentPath = getClass().getClassLoader().getResource("").getPath();
+        System.out.println(parentPath);
+        File file = new File(parentPath, "test.xml");
+        String content = FileUtils.readFileToString(file);
+        System.out.println(content);
+    }
+
+
 }
