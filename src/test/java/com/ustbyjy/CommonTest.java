@@ -469,13 +469,6 @@ public class CommonTest {
             userList.add(tempUser);
             System.out.println(tempUser);
         }
-
-        System.out.println("==============华丽丽的分割线==============");
-
-        for (int i = 0; i < 10; i++) {
-            User tempUser = userList.get(i);
-            System.out.println(tempUser);
-        }
     }
 
     @Test
