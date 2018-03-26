@@ -684,4 +684,10 @@ public class CommonTest {
 
         leader.assignWork();
     }
+
+    @Test
+    public void testLogbackException() {
+        Throwable error = null;
+        logger.error("error", error);
+    }
 }
