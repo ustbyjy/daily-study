@@ -28,7 +28,7 @@
         <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
         <dom4j.version>2.0.0</dom4j.version>
         <xstream.version>1.4.10</xstream.version>
-        <hutool-all.version>3.1.0</hutool-all.version>
+        <hutool-all.version>4.0.9</hutool-all.version>
         <cglib.version>3.2.5</cglib.version>
         <freemarker.version>2.3.23</freemarker.version>
     </properties>
@@ -102,7 +102,7 @@
             <version>${xstream.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.xiaoleilu</groupId>
+            <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool-all.version}</version>
         </dependency>

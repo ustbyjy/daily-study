@@ -1,12 +1,13 @@
 package com.ustbyjy;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ustbyjy.bean.*;
 import com.ustbyjy.util.FreeMarkerUtil;
 import com.ustbyjy.util.IpUtil;
-import com.xiaoleilu.hutool.util.BeanUtil;
 import freemarker.template.Template;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -689,5 +690,14 @@ public class CommonTest {
     public void testLogbackException() {
         Throwable error = null;
         logger.error("error", error);
+    }
+
+    @Test
+    public void testUnderlineCase() {
+        String s = StrUtil.toUnderlineCase("userDetail");
+        System.out.println(s);
+
+        s = StrUtil.toCamelCase(s);
+        System.out.println(s);
     }
 }
