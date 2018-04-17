@@ -700,4 +700,21 @@ public class CommonTest {
         s = StrUtil.toCamelCase(s);
         System.out.println(s);
     }
+
+    @Test
+    public void testExceptionMessage() {
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            String message = e.getMessage();
+            System.out.println(message);
+        }
+
+        try {
+            throw new Exception("error");
+        } catch (Exception e) {
+            String message = e.getMessage();
+            System.out.println(message);
+        }
+    }
 }
