@@ -10,12 +10,14 @@ import com.ustbyjy.util.FreeMarkerUtil;
 import com.ustbyjy.util.IpUtil;
 import freemarker.template.Template;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
@@ -715,6 +717,21 @@ public class CommonTest {
         } catch (Exception e) {
             String message = e.getMessage();
             System.out.println(message);
+        }
+    }
+
+    /**
+     * 文件编码转换
+     */
+    @Test
+    public void test() {
+        try {
+            File file = new File("D:\\PlatformSVN\\acs\\smsservice\\smsservice_config\\config.xml");
+            String content = FileUtils.readFileToString(file, "UTF-8");
+            File newFile = new File("D:\\PlatformSVN\\acs\\smsservice\\smsservice_config\\config_new.xml");
+            FileUtils.writeStringToFile(newFile, content, "GB2312");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
