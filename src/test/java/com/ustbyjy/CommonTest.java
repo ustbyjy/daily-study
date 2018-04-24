@@ -17,9 +17,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -734,4 +732,26 @@ public class CommonTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testProcessReturn() {
+        try {
+            Process process = Runtime.getRuntime().exec("ping 127.0.0.1 -t");
+            InputStream inputStream = process.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            process.waitFor();
+            inputStream.close();
+            bufferedReader.close();
+            process.destroy();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
