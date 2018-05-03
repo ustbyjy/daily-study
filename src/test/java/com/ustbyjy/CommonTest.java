@@ -754,4 +754,11 @@ public class CommonTest {
         }
     }
 
+    @Test
+    public void testExtends() {
+        Parent parent = new Children();
+        System.out.println("==================");
+        parent = new Children();
+    }
+
 }
