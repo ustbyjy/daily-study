@@ -1,6 +1,8 @@
 package com.ustbyjy.log;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class LogTest {
+    private static Logger logger = LoggerFactory.getLogger(LogTest.class);
+
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
 
     public static void main(String[] args) {
@@ -62,7 +66,7 @@ public class LogTest {
         Collections.sort(logSegmentList);
 
         for (LogSegment segment : logSegmentList) {
-            System.out.println(segment);
+            logger.info(segment.toString());
         }
     }
 }
