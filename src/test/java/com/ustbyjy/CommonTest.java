@@ -761,4 +761,17 @@ public class CommonTest {
         parent = new Children();
     }
 
+    /**
+     * <ul>
+     * <li>Alt + Enter</li>
+     * <li>Inject language or reference</li>
+     * <li>JSON(JSON files)</li>
+     * <li>Edit JSON Fragment</li>
+     * </ul>
+     */
+    @Test
+    public void testInjectLanguage() {
+        String jsonString = "{\"name\":\"Jack\",\"age\":15}";
+    }
+
 }
