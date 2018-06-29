@@ -18,6 +18,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.URL;
+import java.nio.file.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -772,6 +774,49 @@ public class CommonTest {
     @Test
     public void testInjectLanguage() {
         String jsonString = "{\"name\":\"Jack\",\"age\":15}";
+    }
+
+    @Test
+    public void testErrorLog() {
+        Exception exception = null;
+        logger.info("info", exception);
+        logger.warn("warn", exception);
+        logger.error("error", exception);
+    }
+
+    @Test
+    public void testWatchFile() {
+        try {
+            URL url = this.getClass().getClassLoader().getResource("");
+
+            WatchService watchService = FileSystems.getDefault().newWatchService();
+            Path path = Paths.get(url.toURI());
+            path.register(watchService,
+                    StandardWatchEventKinds.ENTRY_MODIFY,
+                    StandardWatchEventKinds.ENTRY_DELETE,
+                    StandardWatchEventKinds.ENTRY_CREATE);
+
+            Thread thread = new Thread(() -> {
+                try {
+                    while (true) {
+                        WatchKey watchKey = watchService.take();
+                        List<WatchEvent<?>> watchEvents = watchKey.pollEvents();
+                        for (WatchEvent<?> event : watchEvents) {
+                            System.out.println("[" + url.getPath() + "/" + event.context() + "]文件发生了[" + event.kind() + "]事件");
+                        }
+                        watchKey.reset();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            thread.setDaemon(false);
+            thread.start();
+
+            System.in.read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
