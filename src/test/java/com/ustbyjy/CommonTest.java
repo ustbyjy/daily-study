@@ -819,4 +819,11 @@ public class CommonTest {
         }
     }
 
+    @Test
+    public void testValueOf() {
+        String s = "0010";
+        int i = Integer.valueOf(s);
+        System.out.println(i);
+    }
+
 }
