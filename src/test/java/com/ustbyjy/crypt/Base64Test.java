@@ -51,4 +51,11 @@ public class Base64Test {
         System.out.println(new String(decoder.decode(encodedText), "UTF-8"));
     }
 
+    @Test
+    public void base64ToString() {
+        String base64Str = "rO0ABXNyABtjb20uYmp4LmFwaS5iZWFuLlNtc01lc3NhZ2V/l4ADlMCVsQIAAkwAB2NvbnRlbnR0ABJMamF2YS9sYW5nL1N0cmluZztMAAZtb2JpbGVxAH4AAXhwdABi5oKo55qE5omL5py66aqM6K+B56CB5Li677yaMzE2MDAw6K+35ZyoMTXliIbpkp/lhoXlrozmiJDpqozor4HvvIzlpoLpnZ7mnKzkurrmk43kvZzvvIzor7flv73nlaXjgIJ0AAsxODUxODY2NjIyOQ==";
+        String str = new String(Base64.decodeBase64(base64Str));
+        System.out.println(str);
+    }
+
 }

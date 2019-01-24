@@ -9,6 +9,7 @@ import com.ustbyjy.bean.*;
 import com.ustbyjy.util.FreeMarkerUtil;
 import com.ustbyjy.util.IpUtil;
 import freemarker.template.Template;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -18,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.nio.file.*;
 import java.text.ParseException;
@@ -824,6 +826,61 @@ public class CommonTest {
         String s = "0010";
         int i = Integer.valueOf(s);
         System.out.println(i);
+    }
+
+    @Test
+    public void testBigDecimal() {
+        BigDecimal masterIncomePercentageDecimal = new BigDecimal(70).divide(new BigDecimal(100));
+        long masterIncome = new BigDecimal(1).multiply(masterIncomePercentageDecimal).longValue();
+        long companyIncome = new BigDecimal(1).longValue() - masterIncome;
+
+        System.out.println(masterIncomePercentageDecimal);
+        System.out.println(masterIncome);
+        System.out.println(companyIncome);
+    }
+
+    @Test
+    public void testMap123() {
+        Map<String, Object> map = new HashMap<>();
+        Boolean needAudit = (Boolean) map.get("needAudit");
+        System.out.println(needAudit);
+    }
+
+    @Test
+    public void testMd5() {
+        StringBuilder sb = new StringBuilder("228acb91584158e23327e2a0d200b313");
+        System.out.println(sb.reverse().toString());
+
+        for (int i = 0; i < 100; i++) {
+            byte[] data = (StringUtils.EMPTY + i).getBytes();
+            System.out.println(DigestUtils.md5Hex(data));
+        }
+    }
+
+    @Test
+    public void testIntNull() {
+        Integer i1 = null;
+        int i2 = 0;
+        System.out.println(i2 == i1);
+    }
+
+    @Test
+    public void testTimeZone() {
+//        Calendar cal = Calendar.getInstance();
+//        int offset = cal.get(Calendar.ZONE_OFFSET);
+//        cal.add(Calendar.MILLISECOND, -offset);
+//        Long timeStampUTC = cal.getTimeInMillis();
+//        Long timeStamp = System.currentTimeMillis();
+//        Long timeZone = (timeStamp - timeStampUTC) / (1000 * 3600);
+//        System.out.println(timeZone.intValue());
+//        System.out.println(timeZone);
+
+        Calendar cal = Calendar.getInstance(Locale.getDefault());
+        int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
+        int zone = zoneOffset / 60 / 60 / 1000; //时区，东时区数字为正，西时区为负
+        System.out.println(zone);
+
+        System.out.println(Calendar.getInstance(Locale.getDefault()).get(Calendar.ZONE_OFFSET) / 60 / 60 / 1000);
     }
 
 }

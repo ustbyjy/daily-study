@@ -8,7 +8,9 @@ import com.ustbyjy.bean.User;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -107,6 +109,18 @@ public class FastJsonTest {
 
         ResultBean bean = JSON.parseObject(s, ResultBean.class);
         System.out.println(bean);
+    }
+
+    @Test
+    public void jsonToString() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("version", 4002);
+        jsonObject.put("forced", true);
+        jsonObject.put("desc", "1.bug修复\n2.新增特性");
+        jsonObject.put("url", "https://bjx-packages.oss-cn-beijing.aliyuncs.com/master/test/app-debug.apk");
+        System.out.println(jsonObject.toJSONString());
+
+        System.out.println(jsonObject.getString("desc"));
     }
 
 }
