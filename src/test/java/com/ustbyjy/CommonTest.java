@@ -883,4 +883,9 @@ public class CommonTest {
         System.out.println(Calendar.getInstance(Locale.getDefault()).get(Calendar.ZONE_OFFSET) / 60 / 60 / 1000);
     }
 
+    @Test
+    public void demo() {
+        System.out.println(Integer.MAX_VALUE + 2);
+    }
+
 }

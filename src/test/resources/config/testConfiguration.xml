@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+
+    <additional>
+        <hierarchicalXml fileName="testHierarchicalXMLConfiguration.xml">
+            <reloadingStrategy refreshDelay="500" config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy" />
+        </hierarchicalXml>
+        <hierarchicalXml fileName="testDigesterConfigurationInclude1.xml" at="tables">
+            <reloadingStrategy refreshDelay="500" config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy" />
+        </hierarchicalXml>
+    </additional>
+
+</configuration>
