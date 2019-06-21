@@ -71,3 +71,6 @@ $RECYCLE.BIN/
 
 # Maven
 target/
+
+# temp
+tmp/
