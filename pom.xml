@@ -27,7 +27,7 @@
         <easy-okhttp.version>1.1.4</easy-okhttp.version>
         <log4j.version>2.8.2</log4j.version>
         <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
-        <dom4j.version>2.0.0</dom4j.version>
+        <dom4j.version>2.1.3</dom4j.version>
         <xstream.version>1.4.10</xstream.version>
         <hutool-all.version>4.5.13</hutool-all.version>
         <cglib.version>3.2.5</cglib.version>
