@@ -22,7 +22,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-codec.version>1.10</commons-codec.version>
-        <commons-net.version>3.6</commons-net.version>
+        <commons-net.version>3.9.0</commons-net.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <easy-okhttp.version>1.1.4</easy-okhttp.version>
         <log4j.version>2.8.2</log4j.version>
